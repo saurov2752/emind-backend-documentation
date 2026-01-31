@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace System - Complete Documentation | CodeCanyon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: auto;
+            overflow-y: scroll;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 0;
+            overflow-x: auto;
+            min-width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+            overflow-y: visible;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin: 5px 0;
+        }
+
+        nav {
+            background: #2c3e50;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+        }
+
+        nav li {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #34495e;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        .badge-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .badge-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .badge-info {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            padding: 0;
+            overflow-x: auto;
+            overflow-y: visible;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 60px;
+            scroll-margin-top: 60px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            color: #555;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        code {
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "Courier New", monospace;
+            color: #e83e8c;
+        }
+
+        pre {
+            background: #283141;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-weight: 400;
+        }
+
+        pre code {
+            background: none;
+            color: #ffffff;
+            padding: 0;
+            font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+            font-weight: 400;
+        }
+
+        .alert {
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 5px solid;
+        }
+
+        .alert-info {
+            background: #e7f3ff;
+            border-color: #2196f3;
+            color: #0c5460;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            border-color: #ffc107;
+            color: #856404;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .alert-danger {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature-card h4 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        .screenshot {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .screenshot-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .screenshot-container h4 {
+            color: #667eea;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .screenshot-container p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .intro-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 6px;
+            margin-bottom: 40px;
+            border-left: 4px solid #667eea;
+        }
+
+        .intro-section h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .intro-section p {
+            color: #495057;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        .doc-control-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .doc-control-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .doc-control-table td {
+            padding: 12px 15px;
+            border-top: 1px solid #e9ecef;
+            color: #495057;
+        }
+
+        .doc-control-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .requirements-list {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+        }
+
+        .requirements-list ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .requirements-list li {
+            margin-bottom: 8px;
+            color: #495057;
+            line-height: 1.8;
+        }
+
+        .installation-steps {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+        }
+
+        .installation-steps ol {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        .installation-steps li {
+            margin-bottom: 12px;
+            color: #495057;
+            line-height: 1.8;
+        }
+
+        .feature-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature-box h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+        }
+
+        .tech-item strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .image-item {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            overflow-x: auto;
+            overflow-y: visible;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .image-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+        }
+
+        .image-details {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+        }
+
+        .image-details h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .image-details p {
+            color: #495057;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            font-size: 1.02em;
+        }
+
+        .image-details ul {
+            margin-left: 25px;
+            color: #495057;
+            margin-top: 10px;
+        }
+
+        .image-details li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .image-details strong {
+            color: #2c3e50;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 25px;
+            padding: 20px;
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            overflow-x: auto;
+            overflow-y: visible;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            display: block;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            min-width: 0;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: block;
+            margin: 0 auto;
+            object-fit: contain;
+            vertical-align: middle;
+            box-sizing: border-box;
+        }
+
+        /* Ensure images are fully visible and never cut off */
+        .image-container {
+            position: relative;
+            min-width: 0;
+        }
+
+        .image-container::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        /* Force images to scale down to fit container, never cut off */
+        .image-container img {
+            max-width: 100% !important;
+            width: auto !important;
+            height: auto !important;
+            object-fit: contain !important;
+            display: block !important;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+
+        .image-name {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+
+        .toc {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 30px;
+            border-radius: 6px;
+            margin-bottom: 50px;
+            border-left: 4px solid #667eea;
+        }
+
+        .toc h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .toc ul {
+            list-style: none;
+            columns: 2;
+            column-gap: 30px;
+        }
+
+        .toc li {
+            margin-bottom: 10px;
+            break-inside: avoid;
+        }
+
+        .toc a {
+            color: #495057;
+            text-decoration: none;
+            transition: color 0.2s;
+            display: block;
+            padding: 5px 0;
+        }
+
+        .toc a:hover {
+            color: #667eea;
+            padding-left: 5px;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.95em;
+        }
+
+        @media print {
+            nav {
+                position: static;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                min-width: 100%;
+            }
+
+            header {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .toc ul {
+                columns: 1;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+            }
+
+            .image-container {
+                padding: 15px;
+                overflow-x: auto;
+                overflow-y: visible;
+            }
+
+            .image-container img {
+                max-width: 100% !important;
+                width: auto !important;
+                height: auto !important;
+                min-width: 0 !important;
+            }
+
+            .image-item {
+                padding: 15px;
+                overflow-x: auto;
+                overflow-y: visible;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛍️ E-Commerce Management System – Software Documentation</h1>
+            <p>Emind - Complete Software Documentation</p>
+            <p style="margin-top: 10px; font-size: 0.9em">
+                <span class="badge badge-primary">Laravel 12</span>
+                <span class="badge badge-success">PHP 8.2+</span>
+                <span class="badge badge-info">MySQL</span>
+            </p>
+            <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.9;">Version 1.0.0 — Released: 2026</p>
+        </header>
+
+        <nav class="no-print">
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#system-overview">System Overview</a></li>
+                <li><a href="#key-features">Features</a></li>
+                <li><a href="#server-requirements">Requirements</a></li>
+                <li><a href="#environmentconfiguration">Environment Configuration</a></li>
+                <li><a href="#installation">Installation</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#customer">Customers</a></li>
+                <li><a href="#product">Products</a></li>
+                <li><a href="#sales">Sales</a></li>
+                <li><a href="#system">Settings</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <!-- Document Control -->
+            <div class="intro-section">
+                <h2>Document Control</h2>
+                <table class="doc-control-table">
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Software Name</strong></td>
+                            <td>Emind</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Version</strong></td>
+                            <td>1.0.0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Framework</strong></td>
+                            <td>Laravel 12</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PHP Version</strong></td>
+                            <td>8.2+</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Document Type</strong></td>
+                            <td>Software Documentation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Last Updated</strong></td>
+                            <td>2026</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align: center; margin-top: 20px; color: #6c757d; font-size: 0.9em;">© 2026 All Rights Reserved @ DebuggerMind Technologies</p>
+            </div>
+
+            <!-- Table of Contents -->
+            <div class="toc">
+                <h2>Index / Table of Contents</h2>
+                <ul>
+                    <li><a href="#introduction">01. Introduction</a></li>
+                    <li><a href="#system-overview">02. System Overview</a></li>
+                    <li><a href="#key-features">03. Key Features</a></li>
+                    <li><a href="#server-requirements">04. Server Requirements</a></li>
+                    <li><a href="#environmentconfiguration">05. Environment Configuration</a></li>
+                    <li><a href="#installation">06. Installation Guide</a></li>
+                    <li><a href="#dashboard">07. Dashboard</a></li>
+                    <li><a href="#customer">08. Customer Management</a></li>
+                    <li><a href="#product">09. Product Management</a></li>
+                    <li><a href="#sales">10. Sales & Orders</a></li>
+                    <li><a href="#setup">11. Setup & Variations</a></li>
+                    <li><a href="#shipping">12. Shipping Configuration</a></li>
+                    <li><a href="#staff">13. Staff User Management</a></li>
+                    <li><a href="#role">14. Role and Permission</a></li>
+                    <li><a href="#subscribers">15. Subscribers</a></li>
+                    <li><a href="#system">16. System Settings</a></li>
+                </ul>
+            </div>
+
+            <!-- Introduction Section -->
+            <section id="introduction">
+                <h2>📖 01. Introduction</h2>
+                <p>Emind is a full-featured e-commerce management system developed using Laravel 12. It is designed to manage products, role-permissions, orders, users, payments, setup configurations, and reports through a secure admin dashboard and RESTful APIs for web and mobile applications.</p>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>⚡ Modern Stack</h4>
+                        <p>Built with Laravel 12, PHP 8.2+, and MySQL for optimal performance and developer experience.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔐 Secure</h4>
+                        <p>JWT authentication, role-based access control, and secure payment gateway integration.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📊 Complete Management</h4>
+                        <p>Full admin dashboard for products, orders, customers, shipping, and system configuration.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🤖 AI Support</h4>
+                        <p>Integrated Gemini AI for intelligent chat support and customer assistance.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- System Overview Section -->
+            <div class="section" id="system-overview">
+                <h2 class="section-title">02. System Overview</h2>
+                
+                <div class="feature-box">
+                    <h4>Technology Stack</h4>
+                    <div class="tech-stack">
+                        <div class="tech-item">
+                            <strong>Backend Framework:</strong> Laravel 12
+                        </div>
+                        <div class="tech-item">
+                            <strong>Programming Language:</strong> PHP 8.2+
+                        </div>
+                        <div class="tech-item">
+                            <strong>Database:</strong> MySQL / PostgreSQL / SQLite
+                        </div>
+                        <div class="tech-item">
+                            <strong>Authentication:</strong> JWT
+                        </div>
+                        <div class="tech-item">
+                            <strong>Payment Gateway:</strong> Stripe
+                        </div>
+                        <div class="tech-item">
+                            <strong>API Type:</strong> RESTful (v1)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-box">
+                    <h4>System Architecture</h4>
+                    <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.8;">
+                        <li>Admin Panel (Web)</li>
+                        <li>API Layer (Mobile/Web Clients)</li>
+                        <li>Database Layer</li>
+                        <li>Third-party Integrations (Stripe, Gemini AI)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Key Features Section -->
+            <section id="key-features">
+                <h2>✨ 03. Key Features</h2>
+                <div class="requirements-list">
+                    <ul>
+                        <li>Secure Admin Dashboard</li>
+                        <li>Product & Inventory Management</li>
+                        <li>Order & Invoice Management</li>
+                        <li>Role-Based Access Control (RBAC)</li>
+                        <li>RESTful API Support</li>
+                        <li>Stripe Payment Integration</li>
+                        <li>AI Chat Support (Gemini)</li>
+                        <li>Sales Analytics & Reports</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Server Requirements Section -->
+            <section id="server-requirements">
+                <h2>⚙️ 04. Server Requirements</h2>
+                <div class="requirements-list">
+                    <p><strong>Answer:</strong></p>
+                    <p>To install the script, the minimum server requirements are:</p>
+                    <ul>
+                        <li>PHP version 8.2+</li>
+                        <li>MySQL 8.0+</li>
+                        <li>MariaDB 10.3+</li>
+                        <li>mod_rewrite Apache</li>
+                        <li>BCMath PHP Extension</li>
+                        <li>Ctype PHP Extension</li>
+                        <li>JSON PHP Extension</li>
+                        <li>Mbstring PHP Extension</li>
+                        <li>OpenSSL PHP Extension</li>
+                        <li>PDO PHP Extension</li>
+                        <li>Tokenizer PHP Extension</li>
+                        <li>XML PHP Extension</li>
+                        <li>ZipArchive Extension</li>
+                    </ul>
+                    <p style="margin-top: 15px;">On most servers, these extensions are enabled by default, but you should check with your hosting provider.</p>
+                </div>
+            </section>
+
+            <!-- environment configuration Guide Section -->
+            <section id="environmentconfiguration">
+                <h2>🚀 05. Environment Configuration Guide</h2>
+                
+                <div class="intro-section" style="margin-bottom: 30px;">
+                    <p><strong>Overview:</strong> This guide will walk you through the complete installation process step by step. Follow each step carefully to ensure a successful installation of the Emind E-Commerce Management System.</p>
+                    <p><strong>Prerequisites:</strong> Make sure you have PHP 8.2+, MySQL 8.0+, Composer installed, and access to your server's database management panel (phpMyAdmin, cPanel, etc.).</p>
+                </div>
+
+                <!-- Pre-Installation Steps -->
+                <div class="installation-steps">
+                    <h4>Pre-Installation Steps (Before Running the Installer):</h4>
+                    <p style="margin-bottom: 20px; color: #495057;">Follow these steps in order before accessing the installation wizard through your browser.</p>
+                    
+                    <div class="image-item" style="margin-top: 20px;">
+                        <div class="image-details">
+                            <h3>Step 1: Extract/Unzip the Project</h3>
+                            <p><strong>Description:</strong> First, you need to extract the downloaded project file from CodeCanyon.</p>
+                            <p><strong>What to do:</strong></p>
+                            <ul>
+                                <li>Download the project zip file from CodeCanyon</li>
+                                <li>Extract/unzip the project file to your desired location</li>
+                                <li><strong>For Local Development:</strong> Extract to your local development folder (e.g., C:\xampp\htdocs\emind or /var/www/html/emind)</li>
+                                <li><strong>For Production/Server:</strong> Extract to your server's public_html directory (or web root directory)</li>
+                                <li>Make sure all files and folders are extracted properly</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="image-item">
+                        <div class="image-details">
+                            <h3>Step 2: Create Database</h3>
+                            <p><strong>Description:</strong> Create a new MySQL database for the project.</p>
+                            <p><strong>What to do:</strong></p>
+                            <ul>
+                                <li>Access your database management panel (phpMyAdmin, cPanel, MySQL command line, or any database tool)</li>
+                                <li>Create a new database (e.g., "emind_db", "emind_database", or any name you prefer)</li>
+                                <li>Note down the following information (you will need these later):
+                                    <ul style="margin-top: 10px; background: #f8f9fa; padding: 15px; border-radius: 4px;">
+                                        <li>Database Name</li>
+                                        <li>Database Username</li>
+                                        <li>Database Password</li>
+                                        <li>Database Host (usually "localhost" or "127.0.0.1")</li>
+                                    </ul>
+                                </li>
+                                <li>Make sure the database user has full privileges (SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, etc.)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Step 0: Installation Welcome Screen -->
+                    <div class="image-item">
+                        <div class="image-container">
+                            <img src="images/step0.jpeg" alt="Installation Welcome Screen">
+                            <p class="image-name">Step 0: Installation Welcome Screen</p>
+                        </div>
+                    </div>
+
+                    <div class="image-item">
+                        <div class="image-details">
+                            <h3>Step 3: Open Project in IDE/Terminal</h3>
+                            <p><strong>Description:</strong> Open the project in your preferred code editor or terminal to proceed with setup.</p>
+                            <p><strong>What to do:</strong></p>
+                            <ul>
+                                <li><strong>For VS Code:</strong> 
+                                    <ul style="margin-top: 5px;">
+                                        <li>Open Visual Studio Code</li>
+                                        <li>Go to File → Open Folder (or press Ctrl+K, Ctrl+O)</li>
+                                        <li>Select your extracted project folder</li>
+                                    </ul>
+                                </li>
+                                <li><strong>For Other IDEs:</strong> Open your IDE (PhpStorm, Sublime Text, etc.) and import/open the project folder</li>
+                                <li><strong>For Terminal/Command Prompt:</strong> 
+                                    <ul style="margin-top: 5px;">
+                                        <li>Open Terminal (Mac/Linux) or Command Prompt/PowerShell (Windows)</li>
+                                        <li>Navigate to the project directory using: <code style="background: #f8f9fa; padding: 2px 6px; border-radius: 3px;">cd path/to/your/project</code></li>
+                                        <li>Example: <code style="background: #f8f9fa; padding: 2px 6px; border-radius: 3px;">cd C:\xampp\htdocs\emind</code> (Windows) or <code style="background: #f8f9fa; padding: 2px 6px; border-radius: 3px;">cd /var/www/html/emind</code> (Linux/Mac)</li>
+                                    </ul>
+                                </li>
+                                <li>Make sure you are in the root directory of the project (where you can see files like: composer.json, .env.example, artisan, etc.)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="image-item">
+                        <div class="image-details">
+                            <h3>Step 4: Create .env File</h3>
+                            <p><strong>Description:</strong> Create the environment configuration file from the example file using terminal command.</p>
+                            <p><strong>What to do:</strong></p>
+                            <ul>
+                                <li>Make sure you are in the project root directory (where .env.example file exists)</li>
+                                <li>Open your terminal/command prompt in the project root directory</li>
+                                <li>Run the following command to copy the example environment file:</li>
+                                <li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">cp .env.example .env</code>
+                                </li>
+                                <li><strong>For Windows Command Prompt:</strong> Use <code>copy .env.example .env</code></li>
+                                <li><strong>For Windows Git Bash/PowerShell:</strong> Use <code>cp .env.example .env</code></li>
+                                <li><strong>For Linux/Mac:</strong> Use <code>cp .env.example .env</code></li>
+                                <li>This will create a new .env file in your project root directory</li>
+                                <li>Now open the .env file and update the database credentials with the information from Step 2:
+                                    <ul style="margin-top: 10px; background: #f8f9fa; padding: 15px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.9em;">
+                                        <li>DB_CONNECTION=mysql</li>
+                                        <li>DB_HOST=127.0.0.1 (or your database host)</li>
+                                        <li>DB_PORT=3306</li>
+                                        <li>DB_DATABASE=your_database_name (from Step 2)</li>
+                                        <li>DB_USERNAME=your_database_username (from Step 2)</li>
+                                        <li>DB_PASSWORD=your_database_password (from Step 2)</li>
+                                    </ul>
+                                </li>
+                                <li>Save the .env file after updating the database credentials</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- .env File Configuration Guide -->
+                    <h3>Introduction to the .env file</h3>
+                    <p>The <code>.env</code> file contains all the environment-specific configuration for your application. After creating the .env file using <code>cp .env.example .env</code>, you'll get the following variables:</p>
+
+                    <pre><code># Application Configuration
+APP_NAME=Emind
+APP_ENV=local
+APP_KEY=base64:IilieYT98ocyy0aMGWvNWQuuOAojYiPReBLussHXs6M=
+APP_DEBUG=true
+APP_URL=http://127.0.0.1:8000
+
+# Locale Settings
+APP_LOCALE=en
+APP_FALLBACK_LOCALE=en
+APP_FAKER_LOCALE=en_US
+
+# Database Configuration
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=example_app
+DB_USERNAME=root
+DB_PASSWORD=
+
+# Session & Cache
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+CACHE_STORE=database
+QUEUE_CONNECTION=database
+
+# Mail Configuration
+MAIL_MAILER=log
+MAIL_HOST=127.0.0.1
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_FROM_ADDRESS="hello@example.com"
+MAIL_FROM_NAME="${APP_NAME}"
+
+# Payment Gateway (Stripe)
+STRIPE_KEY=
+STRIPE_SECRET=
+STRIPE_WEBHOOK_SECRET=
+
+# AI & Chat
+CHAT_API_KEY=""
+GEMINI_API_URL=""
+
+# JWT & Security
+JWT_SECRET=
+APP_TIMEZONE=Asia/Dhaka
+
+# Additional
+REACT_REDIRECT_URL=
+BCRYPT_ROUNDS=12</code></pre>
+
+                    <p>Below is a detailed explanation of each variable:</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Variable</th>
+                                <th>Description</th>
+                                <th>Required</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>APP_NAME</code></td>
+                                <td>The name of your application. Change this to your preferred application name (e.g., "Emind").</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td><code>APP_ENV</code></td>
+                                <td>Application environment. Use <code>local</code> for development, <code>production</code> for live server.</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td><code>APP_KEY</code></td>
+                                <td>Application encryption key. Generate using: <code>php artisan key:generate</code>. Keep this secret!</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td><code>APP_DEBUG</code></td>
+                                <td>Enable/disable debug mode. Set to <code>false</code> in production for security.</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td><code>APP_URL</code></td>
+                                <td>Base URL of your application. Change to your domain for production (e.g., <code>https://yourdomain.com</code>).</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td><code>APP_LOCALE</code></td>
+                                <td>Default application locale/language. Options: <code>en</code>, <code>bn</code>, <code>es</code>, etc.</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>APP_FALLBACK_LOCALE</code></td>
+                                <td>Fallback locale when translation is missing.</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>APP_FAKER_LOCALE</code></td>
+                                <td>Locale for fake data generation during testing/seeding.</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>DB_CONNECTION</code></td>
+                                <td>Database driver. Options: <code>mysql</code>, <code>pgsql</code>, <code>sqlite</code>.</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td><code>DB_HOST</code></td>
+                                <td>Database host address. Usually <code>127.0.0.1</code> or <code>localhost</code>.</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td><code>DB_PORT</code></td>
+                                <td>Database port. MySQL default is <code>3306</code>.</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td><code>DB_DATABASE</code></td>
+                                <td>Database name you created in Step 2. Replace with your actual database name.</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td><code>DB_USERNAME</code></td>
+                                <td>Database username. Replace with your database username.</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td><code>DB_PASSWORD</code></td>
+                                <td>Database password. Leave empty if no password, otherwise enter your database password.</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td><code>SESSION_DRIVER</code></td>
+                                <td>Session storage driver. Options: <code>file</code>, <code>database</code>, <code>redis</code>.</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>SESSION_LIFETIME</code></td>
+                                <td>Session lifetime in minutes. Default is 120 minutes (2 hours).</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>SESSION_ENCRYPT</code></td>
+                                <td>Enable session encryption. Set to <code>true</code> for enhanced security.</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>CACHE_STORE</code></td>
+                                <td>Cache driver. Options: <code>database</code>, <code>file</code>, <code>redis</code>.</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>QUEUE_CONNECTION</code></td>
+                                <td>Queue connection driver. Options: <code>database</code>, <code>redis</code>, <code>sync</code>.</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>MAIL_MAILER</code></td>
+                                <td>Mail driver. Use <code>log</code> for testing, <code>smtp</code> for production.</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>MAIL_HOST</code></td>
+                                <td>SMTP server host (e.g., <code>smtp.gmail.com</code> for Gmail).</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>MAIL_PORT</code></td>
+                                <td>SMTP port. Common: <code>587</code> (TLS), <code>465</code> (SSL), <code>2525</code>.</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>MAIL_USERNAME</code></td>
+                                <td>SMTP username (your email address).</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>MAIL_PASSWORD</code></td>
+                                <td>SMTP password (your email password or app password).</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>MAIL_FROM_ADDRESS</code></td>
+                                <td>Default "from" email address for outgoing emails.</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>MAIL_FROM_NAME</code></td>
+                                <td>Default "from" name (uses APP_NAME by default).</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>STRIPE_KEY</code></td>
+                                <td>Stripe Publishable Key. Get from <a href="https://dashboard.stripe.com/apikeys" target="_blank">Stripe Dashboard</a>.</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>STRIPE_SECRET</code></td>
+                                <td>Stripe Secret Key. Get from <a href="https://dashboard.stripe.com/apikeys" target="_blank">Stripe Dashboard</a>. Keep this secret!</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>STRIPE_WEBHOOK_SECRET</code></td>
+                                <td>Stripe Webhook Secret for verifying webhook events. Configure in Stripe Dashboard → Webhooks.</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>CHAT_API_KEY</code></td>
+                                <td>Chat API key for customer support chat functionality.</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>GEMINI_API_URL</code></td>
+                                <td>Gemini AI API URL for AI-powered chat support. Get from Google AI Studio.</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>JWT_SECRET</code></td>
+                                <td>JWT secret key for API authentication. Generate using: <code>php artisan jwt:secret</code>.</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>APP_TIMEZONE</code></td>
+                                <td>Application timezone. Change to your preferred timezone (e.g., <code>America/New_York</code>, <code>Europe/London</code>).</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>REACT_REDIRECT_URL</code></td>
+                                <td>Frontend React application URL for redirects (if using React frontend).</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>BCRYPT_ROUNDS</code></td>
+                                <td>Number of rounds for bcrypt hashing. Higher = more secure but slower. Default: 12.</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code>PHP_CLI_SERVER_WORKERS</code></td>
+                                <td>Number of workers for PHP built-in server (development only).</td>
+                                <td>No</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="alert alert-info" style="margin-top: 30px;">
+                        <strong>📌 Important Notes:</strong>
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li>Never commit the <code>.env</code> file to version control (Git)</li>
+                            <li>Keep all secret keys (APP_KEY, JWT_SECRET, STRIPE_SECRET) confidential</li>
+                            <li>Set <code>APP_DEBUG=false</code> in production</li>
+                            <li>Use <code>APP_ENV=production</code> for live server</li>
+                            <li>Update <code>APP_URL</code> to your actual domain in production</li>
+                            <li>After changing .env file, clear cache: <code>php artisan config:clear</code></li>
+                        </ul>
+                    </div>
+
+                    <div class="image-item">
+                        <div class="image-details">
+                            <h3>Step 5: Run the Project</h3>
+                            <p><strong>Description:</strong> Start the development server to run the project and access the installation wizard.</p>
+                            <p><strong>For Local Development:</strong></p>
+                            <ul>
+                                <li>Make sure you are in the project root directory in your terminal</li>
+                                <li>Run the following command to start the Laravel development server:</li>
+                                <li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">php artisan serve</code>
+                                </li>
+                                <li>You will see a message like: <code>Server started on http://127.0.0.1:8000</code></li>
+                                <li>Open your web browser and navigate to: <code>http://localhost:8000</code> or <code>http://127.0.0.1:8000</code></li>
+                                <li>The installation wizard will automatically appear and guide you through the rest of the setup</li>
+                            </ul>
+							<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+							<h3>cPanel Server Setup</h3>
+                            <ul>
+                                <li>Upload all project files to your server's public_html directory (or web root directory)</li>
+                                <li>Make sure the .env file is uploaded and configured with your server's database credentials</li>
+                                <li>Set proper file permissions (folders: 755, files: 644) using FTP client or file manager</li>
+                                <li>Access your website URL in a browser (e.g., <code>https://yourdomain.com</code>)</li>
+                                <li>The installation process will automatically start when you hit the URL</li>
+                                <li><strong>Note:</strong> You don't need to run <code>php artisan serve</code> on the server - just access the URL directly</li>
+                            </ul>
+							
+							<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+							
+							<h3>VPS Server Setup</h3>
+							<p>To host an application on a Virtual Private Server (VPS), you need to configure the LAMP stack, which serves as the environment for PHP/Laravel applications. LAMP comprises Linux, Apache2, MySQL, and PHP. Alternatively, NGinx can be used instead of Apache2, but this tutorial focuses only on Apache2 configuration.</p>
+							<p><strong>Installing LAMP Stack:</strong></p>
+							<p>This guide will walk you through the process of setting up a LAMP stack on an Ubuntu server. Make sure you have an Ubuntu server instance with sudo privileges.</p>
+							<p>Run the following commands for installing required things-</p>
+                            <ul>
+								<li>Step 1: Update Package Lists</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">sudo apt update</code>
+                                </li>
+								
+								<li>Step 2: Install Apache</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">sudo apt install apache2 -y</code>
+                                </li>
+								
+								<li>Step 3: Install MySQL</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">sudo apt install mysql-server</code>
+                                </li>
+								
+								<li>Step 4: Install PHP</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">sudo apt install php libapache2-mod-php php-mysql</code>
+                                </li>
+								
+								<li>Step 5: Test PHP Processing</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+									<code style="color: #ffffff;">echo "&lt;?php phpinfo(); ?&gt;" | sudo tee /var/www/html/info.php</code>
+                                </li>
+								
+								<li>Step 6: Additional PHP Modules</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+									<code style="color: #ffffff;">
+									sudo apt install php-bcmath -y </br>
+									sudo apt install php-ctype -y </br>
+									sudo apt install php-json -y </br>
+									sudo apt install php-mbstring -y </br>
+									sudo apt install php-openssl -y </br>
+									sudo apt install php-pdo -y </br>
+									sudo apt install php-tokenizer -y </br>
+									sudo apt install php-xml -y </br>
+									sudo apt install php-zip -y </br>
+									sudo apt install php-fileinfo -y </br>
+									sudo apt install php-gd -y </br>
+									sudo apt install php-sodium -y </br>
+									sudo apt install php-mysql -y
+									</code>
+                                </li>
+								
+                            </ul>
+							
+							<p><strong>Configure domain:</strong></p>
+							<p>Make sure you have an Apache web server installed. For configuring domain in your VPS server, you must configure a vhost (Virtual Host) configuration file. Follow the steps below to configure vhost config file for both domain.</p>
+							<ul>
+								<li>Step 1: Navigate to Apache Sites Directory</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">cd /etc/apache2/sites-available/</code>
+                                </li>
+								
+								<li>Step 2: Create a Virtual Host Configuration File</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">sudo nano /etc/apache2/sites-available/your_domain.com.conf</code>
+                                </li>
+								
+								<li>Add the following content:</li>
+								<li 
+								
+								
+								<div style="background-color: #1e2327; padding: 25px; border-radius: 5px; font-family: 'Consolas', 'Monaco', monospace; font-size: 16px; line-height: 1.6; color: #abb2bf; width: fit-content;">
+
+									<div style="margin-bottom: 2px;">
+										<div style="color: #e06c75;">&lt;VirtualHost *:80&gt;</div>
+									</div>
+
+									<div style="padding-left: 30px;">
+										<div>
+											<div style="display: inline; color: #61afef;">ServerAdmin</div>
+											<div style="display: inline; color: #d19a66;"> webmaster@your_domain.com</div>
+										</div>
+										<div>
+											<div style="display: inline; color: #61afef;">ServerAlias</div>
+											<div style="display: inline; color: #d19a66;"> www.your_domain.com</div>
+										</div>
+										<div>
+											<div style="display: inline; color: #61afef;">ServerName</div>
+											<div style="display: inline; color: #d19a66;"> your_domain.com</div>
+										</div>
+										<div>
+											<div style="display: inline; color: #61afef;">DocumentRoot</div>
+											<div style="display: inline; color: #d19a66;"> /var/www/your_domain.com/public_html</div>
+										</div>
+									</div>
+
+									<div style="height: 20px;"></div>
+
+									<div style="padding-left: 30px;">
+										<div style="color: #e06c75;">&lt;Directory /var/www/your_domain.com/public_html&gt;</div>
+										
+										<div style="padding-left: 30px;">
+											<div>
+												<div style="display: inline; color: #61afef;">Options</div>
+												<div style="display: inline; color: #d19a66;"> -Indexes +FollowSymLinks</div>
+											</div>
+											<div>
+												<div style="display: inline; color: #61afef;">AllowOverride</div>
+												<div style="display: inline; color: #d19a66;"> All</div>
+											</div>
+											<div>
+												<div style="display: inline; color: #61afef;">Require</div>
+												<div style="display: inline; color: #d19a66;"> all granted</div>
+											</div>
+										</div>
+
+										<div style="color: #e06c75;">&lt;/Directory&gt;</div>
+									</div>
+
+									<div style="height: 20px;"></div>
+
+									<div style="padding-left: 30px;">
+										<div>
+											<div style="display: inline; color: #61afef;">ErrorLog</div>
+											<div style="display: inline; color: #d19a66;"> ${APACHE_LOG_DIR}/error.log</div>
+										</div>
+										<div>
+											<div style="display: inline; color: #61afef;">CustomLog</div>
+											<div style="display: inline; color: #d19a66;"> ${APACHE_LOG_DIR}/access.log combined</div>
+										</div>
+									</div>
+
+									<div style="color: #e06c75;">&lt;/VirtualHost&gt;</div>
+
+								</div>
+								
+								
+                                </li>
+								<li>Save the file and exit the text editor.</li>
+								
+								
+								<li>Step 3: Enable the virtual host configuration file</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">sudo a2ensite your_domain.com.conf</code>
+                                </li>
+								
+								<li>Step 4: Reload the Apache2 server</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">sudo systemctl reload apache2</code>
+                                </li>
+								
+								<li>Step 5: Test the Virtual Host. Open your web browser and navigate to http://your_domain.com. You should see your website.</li>
+								
+                            </ul>
+							
+							<p><strong>Domain propagation:</strong></p>
+							<p>Domain propagation refers to the process of updating DNS (Domain Name System) records across the internet, allowing a newly purchased domain to become accessible globally.</p>
+							<p>To initiate the process, configure an <strong>A record</strong> for your domain.</p>
+							
+							<div class="alert alert-info" style="margin-top: 30px;">
+								<strong>Info:</strong>
+								<p>Once DNS changes are made, propagation begins. It can take anywhere from a few minutes to 48 hours for DNS changes to propagate worldwide. During this time, some users might see the old site while others see the new one.</p>
+							</div>
+							
+							<div class="alert alert-warning" style="margin-top: 30px;">
+								<strong>TIP:</strong>
+								<p>Once your domain is propagated, check from the follow site – https://dnschecker.org/</p>
+							</div>
+							
+							
+							<p><strong>Setup SSL with Certbot on Apache:</strong></p>
+							<p>SSL (Secure Socket Layer) is crucial for securing data transmitted between the user’s browser and your web server. Certbot is a free, open-source software tool for automatically managing SSL certificates.</p>
+							<p>In this guide, we’ll walk through the process of setting up SSL for your Apache web server using Certbot.</p>
+							<p>Before you begin, make sure you have:</p>
+							<ul>
+								<li>An Apache web server installed.</li>
+								<li>A registered domain pointing to your server’s IP address.</li>
+								<li>The domain is accessible over HTTP (port 80).</li>
+                            </ul>
+							<p>SSH into the server</p>
+							<ul>
+								<li>Step 1: SSH into the server. Access the server hosting your HTTP website via SSH using a user account with sudo privileges.</li>
+								<li>Step 2: Install snapd. Ensure that you install snapd and carefully follow any provided instructions to activate classic snap support.</li>
+								<li>Refer to the instructions provided on snapcraft’s website for installing snapd.</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">install snapd</code>
+                                </li>
+								
+								<li>Step 3: Remove certbot-auto and any Certbot OS packages</li>
+								<li>If you have any Certbot packages installed via an OS package manager such as apt, it’s advisable to uninstall them before installing the Certbot snap. This ensures that when you execute the command “certbot,” the snap version is utilized rather than the one from your OS package manager. For removing the certbot from the system run the following command</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">sudo apt-get remove certbot</code>
+                                </li>
+								
+								<li>Step 4: Install Certbot. Execute this command on the command line of your machine to install Certbot.</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">sudo snap install --classic certbot</code>
+                                </li>
+								
+								<li>Step 5: Prepare the Certbot command. Run the following instruction on the command line of your machine to ensure that the certbot command can be executed.</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">sudo ln -s /snap/bin/certbot /usr/bin/certbot</code>
+                                </li>
+								
+								<li>Step 6: Choose how you’d like to run Certbot. Run this command to get a certificate and have Certbot edit your apache configuration automatically to serve it, turning on HTTPS access in a single step.</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">sudo certbot --apache</code>
+								</li>
+									
+								<li>Or, just get a certificate</li>
+								<li>If you’re feeling more conservative and would like to make the changes to your apache configuration by hand, run this command.</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">sudo certbot certonly --apache</code>
+                                </li>
+								
+								<li>Step 7: Test automatic renewal</li>
+								<li>The Certbot packages on your system come with a cron job or systemd timer that will renew your certificates automatically before they expire. You will not need to run Certbot again, unless you change your configuration. You can test automatic renewal for your certificates by running this command:</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">sudo certbot renew --dry-run</code>
+                                </li>
+								
+								<li>Step 8: Confirm that Certbot worked</li>
+								<li>To confirm that your site is set up properly, visit https://yourwebsite.com/ in your browser and look for the lock icon in the URL bar.</li>
+								
+                            </ul>
+							
+							<p><strong>MySQL Database and User Setup:</strong></p>
+							<p>Setting up a MySQL database involves creating a database, creating a user, and assigning that user appropriate privileges. This guide will walk you through the process using MySQL commands.</p>
+							<p>Before you begin, make sure you have:</p>
+							<ul>
+								<li>MySQL installed on your server.</li>
+								<li>MySQL root access or a user with sufficient privileges.</li>
+							</ul>
+							
+							<p>Follow the below steps:</p>
+							<ul>
+								<li>Step 1: Log in to MySQL</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">sudo mysql</code>
+                                </li>
+								<li>Step 2: Create a Database</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">CREATE DATABASE your_database_name;</code>
+                                </li>
+								<p>Replace your_database_name with the desired name for your database.</p>
+								
+								<li>Step 3: Create a MySQL User</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';</code>
+                                </li>
+								<p>Replace your_username with the desired username and your_password with the desired password for the user.</p>
+								
+								<li>Step 4: Grant All Privileges to the User for the Database</li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">GRANT ALL PRIVILEGES ON your_database_name.* TO 'your_username'@'localhost';</code>
+                                </li>
+								
+								<li>Step 4: Flush the privileges </li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">FLUSH PRIVILEGES;</code>
+                                </li>
+								<p>Replace your_database_name with the name of the database created in Step 2 and your_username with the username created in Step 3</p>
+								
+								<li>Step 5: Exit MySQL </li>
+								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+                                    <code style="color: #ffffff;">EXIT;</code>
+                                </li>
+							</ul>
+								
+								
+							<p><strong>phpMyadmin setup (optional):</strong></p>
+							<p>Run the following commands for installing phpmyadmin in your system</p>
+							<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+								<code style="color: #ffffff;">sudo apt update</code>
+							</li>
+							<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+								<code style="color: #ffffff;">sudo apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl</code>
+							</li>
+							<p>Here are the options you should choose when prompted in order to configure your installation correctly:</p>
+							<p>For the server selection, choose apache2.</p>
+							<div class="alert alert-warning" style="margin-top: 30px;">
+								<strong>Warning:</strong>
+								<p>When the prompt appears, “apache2” is highlighted, but not selected. If you do not hit SPACE to select Apache, the installer will not move the necessary files during installation. Hit SPACE, TAB, and then ENTER to select Apache.</p>
+							</div>
+							<p>Select Yes when asked whether to use dbconfig-common to set up the database.</p>
+							<p>You will then be asked to choose and confirm a MySQL application password for phpMyAdmin.</p>
+							<p>Restart the apache2 server-</p>
+							<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+								<code style="color: #ffffff;">sudo systemctl restart apache2</code>
+							</li>
+							
+							<p><strong>Project Setup</strong></p>
+							<p>Upload your project in /var/www/your_domain.com/public_html and unzip the file</p>
+							<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+								<code style="color: #ffffff;">apt install unzip</code>
+							</li>
+							<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+								<code style="color: #ffffff;">unzip your_file_name</code>
+							</li>
+							
+							<p>Then give permission to some specific files & folders</p>
+							<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
+								<code style="color: #ffffff;">
+								sudo chmod 755 .env </br>
+								sudo chmod 777 modules_statuses.json </br>
+								sudo chmod 777 Providers/RouteServiceProvider.php </br>
+								sudo chmod -R 777 storage </br>
+								sudo chmod -R 777 bootstrap/cache </br>
+								sudo chmod -R 777 resources/lang </br>
+								</code>
+							</li>
+							<p>Now you are ready to go for the installation.</p>
+							
+                        </div>
+                    </div>
+                </div>
+
+                <div class="intro-section" style="margin-top: 30px; background: #e7f3ff; border-left-color: #2196F3;">
+                    <h4 style="color: #1976D2; margin-bottom: 10px;">📌 Important Note:</h4>
+                    <p style="color: #1565C0;">After completing Steps 1-5, when you access the URL (localhost:8000 for local or your domain for server), the installation wizard will automatically start. Follow the on-screen instructions in the installation wizard (Steps 1-9 shown below) to complete the setup.</p>
+                </div>
+				
+				<section id="installation">
+				<h2>🚀 06. Installation Setup</h2>
+                <!-- Step 1: File Permissions Check -->
+                <div class="image-item">
+                    <div class="image-details">
+                        <h3>Step 1: Get Started the Installation and Checking File Permissions</h3>
+                        <p><strong>Description:</strong> After running the project (Or hitting the url), when you access the URL in your browser, the installation wizard will automatically start. You'll get a page like below. Just click <strong>Get Started</strong> and you'll get the second page like second below image. This step checks if all required files and directories have the correct permissions.</p>
+                        <p><strong>What to do:</strong></p>
+                        <ul>
+                            <li>The system will automatically check file and folder permissions</li>
+                            <li>If all checks pass, you don't need to do anything - just click on <strong>"Proceed Next"</strong> button</li>
+                            <li>If any permission issues are found, you need to fix them:
+                                <ul style="margin-top: 8px; margin-left: 20px;">
+                                    <li>Set folder permissions to <code>755</code></li>
+                                    <li>Set file permissions to <code>644</code></li>
+                                    <li>Use your FTP client or file manager to change permissions</li>
+                                </ul>
+                            </li>
+                            <li>After fixing any issues, refresh the page and the checks will run again</li>
+                            <li>Once all checks pass, click <strong>"Proceed Next"</strong> to proceed to database configuration</li>
+                        </ul>
+                    </div>
+                    <div class="image-container">
+                        <img src="images/step1.png" alt="File Permissions Check">
+                        <p class="image-name">Step 1: Get Started</p>
+                    </div>
+					<div class="image-container">
+                        <img src="images/step2.png" alt="File Permissions Check">
+                        <p class="image-name">Step 1: File Permissions Check</p>
+                    </div>
+                </div>
+
+                <!-- Step 2: Database Configuration -->
+                <div class="image-item">
+                    <div class="image-details">
+                        <h3>Step 2: Database Configuration</h3>
+                        <p><strong>Description:</strong> In this step, you need to enter your database connection details. Use the database information that you created before in the pre-installation step.</p>
+                        <p><strong>Data Entry Instructions:</strong></p>
+                        <ul>
+                            <li><strong>Database Host:</strong> 
+                                <ul style="margin-top: 5px; margin-left: 20px;">
+                                    <li>For local development: Enter <code>127.0.0.1</code> or <code>localhost</code></li>
+                                    <li>For server: Usually <code>localhost</code> or check with your hosting provider</li>
+                                    <li>Some hosting providers use specific hostnames like <code>mysql.yourhost.com</code></li>
+                                </ul>
+                            </li>
+                            <li><strong>Database Name:</strong> Enter the exact name of the database you created (e.g., "emind_db", "emind_database")</li>
+                            <li><strong>Database Username:</strong> Enter the username of the database user you created</li>
+                            <li><strong>Database Password:</strong> Enter the password for your database user (leave empty if no password was set)</li>
+                            <li>Double-check all information before clicking <strong>"Continue"</strong></li>
+                            <li>If you see an error, verify your database credentials in phpMyAdmin or your database management tool</li>
+                            <li>After entering all correct information, click <strong>"Continue"</strong> to proceed to database import</li>
+                        </ul>
+                    </div>
+                    <div class="image-container">
+                        <img src="images/step3.png" alt="Database Configuration">
+                        <p class="image-name">Step 2: Database Configuration</p>
+                    </div>
+                </div>
+
+                <!-- Step 3: Database Import -->
+                <div class="image-item">
+                    <div class="image-details">
+                        <h3>Step 3: Import Database</h3>
+                        <p><strong>Description:</strong> After successfully providing the database information, the installer will ask to import the database (tables, relationships, and initial data).</p>
+                        <p><strong>What happens:</strong></p>
+                        <ul>
+                            <li>The system will automatically start importing the database structure</li>
+                            <li>This process creates all required tables for:
+                                <ul style="margin-top: 5px; margin-left: 20px;">
+                                    <li>Users, roles, and permissions</li>
+                                    <li>Products, categories, and brands</li>
+                                    <li>Orders and sales</li>
+                                    <li>Customers and shipping</li>
+                                    <li>System settings and configurations</li>
+                                </ul>
+                            </li>
+                            <li>Wait for the import process to complete (this may take 30 seconds to 2 minutes depending on your server)</li>
+                            <li>You can see like second below image if your database is not clean. If you see this page, don't worry about this and click <strong>Force Import Database</strong> </li>
+                            <li><strong>Important:</strong> Do not refresh or close the page during this process - wait until you see the next page</li>
+                        </ul>
+                    </div>
+                    <div class="image-container">
+                        <img src="images/step4.png" alt="Database Import">
+                        <p class="image-name">Step 3: Database Import</p>
+                    </div>
+					<div class="image-container">
+                        <img src="images/step6.png" alt="Database Import">
+                        <p class="image-name">Step 3: Force Import Database</p>
+                    </div>
+                </div>
+
+                <!-- Step 4: Shop Information -->
+                <div class="image-item">
+                    <div class="image-details">
+                        <h3>Step 4: Admin Account Setup</h3>
+                        <p><strong>Description:</strong> In this step, you need to enter your shop/store basic information. This information will be used throughout your e-commerce platform.</p>
+                        <p><strong>Data Entry Instructions:</strong></p>
+                        <ul>
+                            <li><strong>Business Name * (Required):</strong> 
+                                <ul style="margin-top: 5px; margin-left: 20px;">
+                                    <li>Enter your store/shop name (e.g., "My Online Store", "ABC Electronics")</li>
+                                    <li>This name will appear on your website and in emails</li>
+                                    <li>Example: "Emind E-Commerce Store"</li>
+                                </ul>
+                            </li>
+							<li><strong>Admin Name * (Required):</strong> 
+                                <ul style="margin-top: 5px; margin-left: 20px;">
+                                    <li>Enter your full name or the name you want to display in the admin panel</li>
+                                    <li>Example: "John Doe" or "Admin User"</li>
+                                </ul>
+                            </li>
+							<li><strong>Admin Phone:</strong> 
+                                <ul style="margin-top: 5px; margin-left: 20px;">
+                                    <li>Enter your contact phone number (optional but recommended)</li>
+                                    <li>Include country code if needed</li>
+                                    <li>Example: "+880 1234 567890"</li>
+                                </ul>
+                            </li>
+                            <li><strong>Admin Email * (Required):</strong> 
+                                <ul style="margin-top: 5px; margin-left: 20px;">
+                                    <li>Enter your admin email address - <strong>THIS WILL BE YOUR LOGIN EMAIL</strong></li>
+                                    <li>Use a valid email address that you have access to</li>
+                                    <li>Example: "admin@yourstore.com" or "yourname@email.com"</li>
+                                    <li><strong>Remember this email - you'll need it to login!</strong></li>
+                                </ul>
+                            </li>
+                            <li><strong>Currency Model (Optional):</strong> 
+                                <ul style="margin-top: 5px; margin-left: 20px;">
+                                    <li>Enter your currency model</li>
+                                </ul>
+                            </li>
+                            <li><strong>Admin Password * (Required):</strong> 
+                                <ul style="margin-top: 5px; margin-left: 20px;">
+                                    <li>Enter a strong, secure password</li>
+                                    <li>Minimum 8 characters recommended</li>
+                                    <li><strong>Write down and save this password securely - you'll need it to login!</strong></li>
+                                </ul>
+                            </li>
+                            <li>Fill in all fields</li>
+                            <li>Review all information for accuracy</li>
+                            <li>Click <strong>"Complete Installation"</strong> after completing the form to proceed to admin account creation</li>
+                        </ul>
+                    </div>
+                    <div class="image-container">
+                        <img src="images/step7.png" alt="Admin Account Setup">
+                        <p class="image-name">Step 4: Admin Account Setup</p>
+                    </div>
+                </div>
+
+                <!-- Step 6: Installation Complete -->
+                <div class="image-item">
+                    <div class="image-details">
+                        <h3>Step 5: Installation Complete</h3>
+                        <p><strong>Description:</strong> Congratulations! You have successfully completed all the installation steps. The system is now ready to use.</p>
+                        <p><strong>What happens next:</strong></p>
+                        <ul>
+                            <li>You will see a success message: <strong>"All Done, Great Job! Your software is ready to run."</strong></li>
+                            <li>You will see the option:
+                                <ul style="margin-top: 8px; margin-left: 20px;">
+                                    <li><strong>"Admin Panel"</strong> - Takes you directly to the admin login page</li>
+                                </ul>
+                            </li>
+                            <li><strong>Recommended:</strong> Click on <strong>"Admin Panel"</strong> to proceed to the login page</li>
+                            <li><strong>Security Note:</strong> After successful installation, delete or rename the installation folder for security purposes</li>
+                            <li>Your installation is complete! Now proceed to Step 6 to login to the admin panel</li>
+                        </ul>
+                    </div>
+                    <div class="image-container">
+                        <img src="images/step8.png" alt="Installation Complete">
+                        <p class="image-name">Step 6: Installation Complete</p>
+                    </div>
+                </div>
+
+                <!-- Step 7: Admin Login -->
+                <div class="image-item">
+                    <div class="image-details">
+                        <h3>Step 6: Admin Panel Login</h3>
+                        <p><strong>Description:</strong> After completing the installation (Step 5), you will be redirected to the admin login page. This is where you enter the credentials you created in Step 4 to access the admin dashboard.</p>
+                        <p><strong>How to Login:</strong></p>
+                        <ul>
+                            <li><strong>Access the Login Page:</strong>
+                                <ul style="margin-top: 5px; margin-left: 20px;">
+                                    <li>If you clicked <strong>Admin Panel</strong> in Step 5, you're already on this page</li>
+                                    <li>Or navigate to: <code>http://yourdomain.com/login</code> or <code>http://localhost:8000/login</code></li>
+                                    <li>You will see the admin login form</li>
+                                </ul>
+                            </li>
+                            <li><strong>Enter Login Credentials:</strong>
+                                <ul style="margin-top: 5px; margin-left: 20px;">
+                                    <li><strong>Email Address:</strong> Enter the <strong>Admin Email</strong> you created in Step 4</li>
+                                    <li>Example: If you entered "admin@yourstore.com" in Step 4, use that exact email</li>
+                                    <li><strong>Password:</strong> Enter the <strong>Admin Password</strong> you created in Step 4</li>
+                                    <li>Make sure you're using the exact same credentials from Step 4</li>
+                                </ul>
+                            </li>
+                            <li><strong>Login Process:</strong>
+                                <ul style="margin-top: 5px; margin-left: 20px;">
+                                    <li>Double-check your email and password</li>
+                                    <li>Click the <strong>"Sign In"</strong> button</li>
+                                    <li>If credentials are correct, you will be redirected to the Admin Dashboard</li>
+                                    <li>If you see an error, verify your credentials from Step 4</li>
+                                </ul>
+                            </li>
+                            <li>After successful login, you will be taken to the Admin Dashboard</li>
+                        </ul>
+                    </div>
+                    <div class="image-container">
+                        <img src="images/step9.png" alt="Admin Panel Login">
+                        <p class="image-name">Step 7: Admin Panel Login</p>
+                    </div>
+                </div>
+
+                <!-- Additional Installation Notes -->
+                <div class="installation-steps" style="margin-top: 40px;">
+                    <h4>Important Notes After Installation:</h4>
+                    <ul style="list-style-type: disc; margin-left: 20px; margin-top: 15px;">
+                        <li><strong>Security:</strong> Delete or rename the installation folder after successful installation</li>
+                        <li><strong>Environment File:</strong> Make sure your .env file has the correct database credentials</li>
+                        <li><strong>File Permissions:</strong> Set proper file permissions (folders: 755, files: 644)</li>
+                        <li><strong>SSL Certificate:</strong> Install SSL certificate for secure transactions (recommended)</li>
+                        <li><strong>Backup:</strong> Create regular backups of your database and files</li>
+                        <li><strong>Updates:</strong> Keep your system updated with the latest version</li>
+                    </ul>
+                </div>
+
+                <div class="installation-steps" style="margin-top: 20px; background: #fff3cd; border-left-color: #ffc107;">
+                    <h4 style="color: #856404;">Troubleshooting:</h4>
+                    <ul style="list-style-type: disc; margin-left: 20px; margin-top: 15px; color: #856404;">
+                        <li>If installation fails, check database credentials and permissions</li>
+                        <li>Ensure all PHP extensions are installed and enabled</li>
+                        <li>Check server error logs for detailed error messages</li>
+                        <li>Verify that mod_rewrite is enabled on Apache servers</li>
+                        <li>Contact support if you encounter persistent issues</li>
+                    </ul>
+                </div>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard">
+            <h2>📊 06. Dashboard</h2>
+            
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Main Dashboard View</h3>
+                    <p><strong>Description:</strong> The main dashboard provides a comprehensive overview of your marketplace operations at a glance.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Real-time order notification</li>
+                        <li>Quick access to key metrics</li>
+                        <li>Visual representation of sales data, statistics and analytics</li>
+                        <li>Recent activity overview</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/dashbord.png" alt="Dashboard View">
+                    <p class="image-name">dashbord.png</p>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Customer Section -->
+        <section id="customer">
+            <h2>👥 07. Customer Management</h2>
+            
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Customer List</h3>
+                    <p><strong>Description:</strong> View and manage all registered customers in your marketplace.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Complete list of all customers</li>
+                        <li>Search functionality</li>
+                        <li>Customer status management</li>
+                        <li>Quick access to customer details</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/CustomerList.png" alt="Customer List">
+                    <p class="image-name">CustomerList.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Customer Details</h3>
+                    <p><strong>Description:</strong> Detailed view of individual customer information and account details.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Personal information display</li>
+                        <li>Account activity history</li>
+                        <li>Order history summary</li>
+                        <li>Account status and settings</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/CustomerDetals.png" alt="Customer Details">
+                    <p class="image-name">CustomerDetals.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Customer Addresses</h3>
+                    <p><strong>Description:</strong> Manage all addresses associated with a customer account.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>View all saved addresses</li>
+                        <li>Add new addresses</li>
+                        <li>Edit existing addresses</li>
+                        <li>Set default address</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/CustomerAllShippingAddress.png" alt="Customer Addresses">
+                    <p class="image-name">Customer All  Addresses.png</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Section -->
+        <section id="product">
+            <h2>🛍️ 08. Product Management</h2>
+            
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Product List Page</h3>
+                    <p><strong>Description:</strong> Comprehensive view of all products available in your marketplace.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Complete product catalog</li>
+						<li>Product Edit and View</li>
+                        <li>Search facility</li>
+                        <li>Product status management</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/ProductListPage.png" alt="Product List Page">
+                    <p class="image-name">ProductListPage.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Create Product</h3>
+                    <p><strong>Description:</strong> Add new products to your marketplace with detailed information and specifications.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Product name and description</li>
+                        <li>Category and brand selection</li>
+                        <li>Price and inventory management</li>
+                        <li>Image upload and gallery</li>
+                        <li>Product attributes and variations</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/createProduct.png" alt="Create Product">
+                    <p class="image-name">createProduct.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Product Details View</h3>
+                    <p><strong>Description:</strong> Detailed product page showing all information about a specific product.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Product images and gallery</li>
+                        <li>Detailed specifications</li>
+                        <li>Pricing information</li>
+                        <li>Stock availability</li>
+                        <li>Related products</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/Macbook-Air-admin.driftion.com.png" alt="Product Details - Macbook Air">
+                    <p class="image-name">Macbook-Air-admin.driftion.com.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Review List Page</h3>
+                    <p><strong>Description:</strong> Complete list of all product reviews across your marketplace.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>All reviews in one place</li>
+                        <li>Filter by product or rating</li>
+                        <li>Approve or reject reviews</li>
+                        <li>Review status tracking</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/ProductRiviewList.png" alt="Review List Page">
+                    <p class="image-name">ProductRiviewList.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Save Product Review</h3>
+                    <p><strong>Description:</strong> Interface for saving and submitting product reviews.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Rating selection</li>
+                        <li>Review text input</li>
+                        <li>Change reviewer name</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/AddReview.png" alt="Save Product Review">
+                    <p class="image-name">AddReview.png</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sales Section -->
+        <section id="sales">
+            <h2>💰 09. Sales & Orders</h2>
+            
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Order List</h3>
+                    <p><strong>Description:</strong> View all orders placed in your marketplace with comprehensive order management.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Filter by delivery status, payment status</li>
+                        <li>Edit or view order information</li>
+                        <li>Print order invoice</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/OrderList.png" alt="Order List">
+                    <p class="image-name">OrderList.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Order Details</h3>
+                    <p><strong>Description:</strong> Detailed view of individual order information including items, customer, and shipping details.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Order items and quantities</li>
+                        <li>Customer information</li>
+                        <li>Shipping and billing addresses</li>
+                        <li>Payment information</li>
+                        <li>Order status updates</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/OrderDetails.png" alt="Order Details">
+                    <p class="image-name">OrderDetails.png</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Setup & Variations Section -->
+        <section id="setup">
+            <h2>⚙️ 10. Setup & Variations</h2>
+            
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Category List Page</h3>
+                    <p><strong>Description:</strong> Manage product categories for organizing your marketplace inventory.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>View all categories</li>
+                        <li>Hierarchical category structure</li>
+                        <li>Category editing and deletion</li>
+                        <li>Category status management</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/CegegoryListPage.png" alt="Category List Page">
+                    <p class="image-name">CegegoryListPage.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Category Entry Page</h3>
+                    <p><strong>Description:</strong> Create or edit product categories with detailed information.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Category name and description</li>
+                        <li>Parent category selection</li>
+                        <li>Category image upload</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/CategoryEntryPage.png" alt="Category Entry Page">
+                    <p class="image-name">CategoryEntryPage.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Brand List</h3>
+                    <p><strong>Description:</strong> Manage product brands in your marketplace.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>View all brands</li>
+                        <li>Brand editing and deletion</li>
+                        <li>Brand status control</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/BrandList.png" alt="Brand List">
+                    <p class="image-name">BrandList.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Add/Edit Brand</h3>
+                    <p><strong>Description:</strong> Create new product brands with logo and details.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Brand name</li>
+                        <li>Brand logo upload</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/Add Brand.png" alt="Add Brand">
+                    <p class="image-name">Add Brand.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Color List</h3>
+                    <p><strong>Description:</strong> Manage product color variations available in your marketplace.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>All available colors</li>
+                        <li>Color code display</li>
+                        <li>Color management</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/ColorList.png" alt="Color List">
+                    <p class="image-name">ColorList.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Add Color</h3>
+                    <p><strong>Description:</strong> Add new color options for product variations.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Color name input</li>
+                        <li>Color code/picker</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/Add Color.png" alt="Add Color">
+                    <p class="image-name">Add Color.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Unit List</h3>
+                    <p><strong>Description:</strong> Manage measurement units for products (kg, liter, piece, etc.).</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>All available units</li>
+                        <li>Unit management</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/UnitList.png" alt="Unit List">
+                    <p class="image-name">UnitList.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Add/Edit Unit</h3>
+                    <p><strong>Description:</strong> Create new measurement units for products.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Unit name input</li>
+                        <li>Save unit option</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/Add Unit.png" alt="Add Unit">
+                    <p class="image-name">Add Unit.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Attribute List</h3>
+                    <p><strong>Description:</strong> Manage product attributes like size, material, etc.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>All product attributes</li>
+                        <li>Attribute management</li>
+                        <li>Attribute status control</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/AttributeList.png" alt="Attribute List">
+                    <p class="image-name">AttributeList.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Add Attribute</h3>
+                    <p><strong>Description:</strong> Create new product attributes for variation management.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Attribute name input</li>
+                        <li>Attribute values</li>
+                        <li>Attribute type selection</li>
+                        <li>Save attribute option</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/Add Attribute.png" alt="Add Attribute">
+                    <p class="image-name">Add Attribute.png</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shipping Configuration Section -->
+        <section id="shipping">
+            <h2>🚚 11. Shipping Configuration</h2>
+            
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Country List</h3>
+                    <p><strong>Description:</strong> Manage countries available for shipping in your marketplace.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>All available countries</li>
+                        <li>Country status management</li>
+                        <li>Enable/disable countries</li>
+                        <li>Country code display</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/countryList.png" alt="Country List">
+                    <p class="image-name">countryList.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Add Country</h3>
+                    <p><strong>Description:</strong> Add new countries to your shipping configuration.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Country name input</li>
+                        <li>Country code selection</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/Add Country.png" alt="Add Country">
+                    <p class="image-name">Add Country.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>City List</h3>
+                    <p><strong>Description:</strong> Manage cities available for shipping within countries.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>All available cities</li>
+                        <li>City-country association</li>
+                        <li>City status management</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/CityList.png" alt="City List">
+                    <p class="image-name">CityList.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Add City</h3>
+                    <p><strong>Description:</strong> Add new cities to your shipping configuration.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>City name input</li>
+                        <li>Country selection</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/Add City.png" alt="Add City">
+                    <p class="image-name">Add City.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Shipping Cost List</h3>
+                    <p><strong>Description:</strong> View and manage shipping costs for different locations and weight ranges.</p>
+                    <p><strong>Note:</strong> This setup is needed only for location-based shppment pricing.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>All shipping cost configurations</li>
+                        <li>This Location-based pricing</li>
+                        <li>Shipping cost management</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/shippingCostList.png" alt="Shipping Cost List">
+                    <p class="image-name">shippingCostList.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Add Shipping Cost Setup</h3>
+                    <p><strong>Description:</strong> Configure shipping costs for specific locations and conditions.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Location selection (country/city)</li>
+                        <li>Shipping method, cost input</li>
+                        <li>Delivery time settings</li>
+                        <li>Save shipping configuration</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/Add Shipping Cost Setup.png" alt="Add Shipping Cost Setup">
+                    <p class="image-name">Add Shipping Cost Setup.png</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Staff User Section -->
+        <section id="staff">
+            <h2>👨‍💼 12. Staff User Management</h2>
+            
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Staff User List</h3>
+                    <p><strong>Description:</strong> View and manage all staff users who have access to the admin panel.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Complete staff user listing</li>
+                        <li>User role and management</li>
+                        <li>Search staffs</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/Staff UserList.png" alt="Staff User List">
+                    <p class="image-name">Staff UserList.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Create New User</h3>
+                    <p><strong>Description:</strong> Add new staff users to your marketplace admin panel.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>User name and email</li>
+                        <li>Set password</li>
+                        <li>Assign role</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/CreateNewUser.png" alt="Create New User">
+                    <p class="image-name">CreateNewUser.png</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Role and Permission Section -->
+        <section id="role">
+            <h2>🔐 13. Role and Permission</h2>
+            
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Role List</h3>
+                    <p><strong>Description:</strong> View all user roles defined in your system.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>All available roles</li>
+                        <li>Role management</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/RoolList.png" alt="Role List">
+                    <p class="image-name">RoolList.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Create Role and Permissions</h3>
+                    <p><strong>Description:</strong> Create new roles with specific permission sets for staff users.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Role name</li>
+                        <li>Module-based permissions</li>
+                        <li>Save role configuration</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/CreateRoolandPermissions.png" alt="Create Role and Permissions">
+                    <p class="image-name">CreateRoolandPermissions.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Permission List</h3>
+                    <p><strong>Description:</strong> View all available permissions in the system.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>All system permissions</li>
+                        <li>Permission management</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/PermissionList.png" alt="Permission List">
+                    <p class="image-name">PermissionList.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Create Permission</h3>
+                    <p><strong>Description:</strong> Create new custom permissions for your marketplace.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Permission name input</li>
+                        <li>Save permission option</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/CreatePermission1.png" alt="Create Permission">
+                    <p class="image-name">CreatePermission1.png</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subscribers Section -->
+        <section id="subscribers">
+            <h2>📧 14. Subscribers</h2>
+            
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Subscribers List</h3>
+                    <p><strong>Description:</strong> Manage subscribers and email list for marketing campaigns.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>All subscriber emails</li>
+                        <li>Subscribers Management</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/subscribersList.png" alt="Subscribers List">
+                    <p class="image-name">subscribersList.png</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Settings Section -->
+        <section id="system">
+            <h2>⚙️ 15. System Settings</h2>
+            
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>System Setup</h3>
+                    <p><strong>Description:</strong> General system configuration and basic settings for your business.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>System Information</li>
+                        <li>Time zone settings</li>
+                        <li>Currency configuration</li>
+                        <li>General preferences</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/System Setup.png" alt="System Setup">
+                    <p class="image-name">System Setup.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Website Setup</h3>
+                    <p><strong>Description:</strong> Configure website-specific settings and preferences.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Website logo upload</li>
+                        <li>Favicon upload</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/WessiteSetup.png" alt="Website Setup">
+                    <p class="image-name">WessiteSetup.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Homepage Setup</h3>
+                    <p><strong>Description:</strong> Configure homepage layout, banners, and featured content.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Homepage banner management</li>
+                        <li>Homepage configuration</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/homepagesetup.png" alt="Homepage Setup">
+                    <p class="image-name">homepagesetup.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Payment Configuration</h3>
+                    <p><strong>Description:</strong> Set up payment gateways and payment methods for your business.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Stripe API key configuration</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/PaymentConfig.png" alt="Payment Configuration">
+                    <p class="image-name">PaymentConfig.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Shipping Setup</h3>
+                    <p><strong>Description:</strong> Configure shipping setup.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Select your shipping cost option</li>
+                        <li>If you set "Flat Rate", then set a shipping fee</li>
+                        <li>If you set "Location-Based Shipping" option, then the sipping cost will be calculated depend on your "Shipping Cost Setup" input</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/shoppingSetup.png" alt="Shopping Setup">
+                    <p class="image-name">shoppingSetup.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Feature Activation</h3>
+                    <p><strong>Description:</strong> Enable or disable various features and modules in your marketplace.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Turn on maintenance mode if you want to keep your website under maintenance.</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/FeatureActivation.png" alt="Feature Activation">
+                    <p class="image-name">FeatureActivation.png</p>
+                </div>
+            </div>
+
+            <div class="image-item">
+                <div class="image-details">
+                    <h3>Chat API Configuration</h3>
+                    <p><strong>Description:</strong> Configure chat API settings for AI chat bot.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>Visit the site: Go to https://aistudio.google.com/</li>
+                        <li>Log in with your standard Google account.</li>
+                        <li>On the left sidebar, click on "Get API key."</li>
+                        <li>Click the button "Create API key in new project" (or select an existing Google Cloud project if you have one).</li>
+                        <li>Your key will appear, copy and paste it to Chat API Key section.</li>
+                        <li>Use the url which AI model you want to use. You have to paste an url like: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent</li>
+                    </ul>
+                </div>
+                <div class="image-container">
+                    <img src="images/ChatApiConfig.png" alt="Chat API Configuration">
+                    <p class="image-name">ChatApiConfig.png</p>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+        <footer>
+            <p>© 2026 All Rights Reserved @ DebuggerMind Technologies</p>
+            <p style="margin-top: 10px; font-size: 0.85em; opacity: 0.8;">E-Commerce Management System – Software Documentation | Emind v1.0.0</p>
+            <p style="margin-top: 5px; font-size: 0.85em; opacity: 0.8;">Written in English. For support, please contact the author through CodeCanyon.</p>
+        </footer>
+    </div>
+</body>
+</html>
