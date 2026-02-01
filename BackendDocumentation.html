@@ -14,6 +14,7 @@
         html {
             overflow-x: auto;
             overflow-y: scroll;
+            /* scroll-behavior: smooth; */
         }
 
         body {
@@ -645,8 +646,8 @@
 <body>
     <div class="container">
         <header>
-            <h1>🛍️ E-Commerce Management System – Software Documentation</h1>
-            <p>Emind - Complete Software Documentation</p>
+            <h1>🛍️ eMind – Complete Backend Documentation</h1>
+            <p>eMind - an AI-driven universal commerce platform</p>
             <p style="margin-top: 10px; font-size: 0.9em">
                 <span class="badge badge-primary">Laravel 12</span>
                 <span class="badge badge-success">PHP 8.2+</span>
@@ -655,7 +656,7 @@
             <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.9;">Version 1.0.0 — Released: 2026</p>
         </header>
 
-        <nav class="no-print">
+        <!-- <nav class="no-print">
             <ul>
                 <li><a href="#introduction">Introduction</a></li>
                 <li><a href="#system-overview">System Overview</a></li>
@@ -669,7 +670,32 @@
                 <li><a href="#sales">Sales</a></li>
                 <li><a href="#system">Settings</a></li>
             </ul>
+        </nav> -->
+        <nav class="no-print" style="width:100%; font-size:0;">
+
+            <!-- Row 1 -->
+            <div style="width:100%; white-space:nowrap;">
+                <div style="display:inline-block; width:16.66%; font-size:14px;"><a style="white-space:nowrap;" href="#introduction">Introduction</a></div>
+                <div style="display:inline-block; width:16.66%; font-size:14px;"><a style="white-space:nowrap;" href="#system-overview">System Overview</a></div>
+                <div style="display:inline-block; width:16.66%; font-size:14px;"><a style="white-space:nowrap;" href="#key-features">Features</a></div>
+                <div style="display:inline-block; width:16.66%; font-size:14px;"><a style="white-space:nowrap;" href="#server-requirements">Requirements</a></div>
+                <div style="display:inline-block; width:16.66%; font-size:14px;"><a style="white-space:nowrap;" href="#environmentconfiguration">Environment Configuration</a></div>
+                <div style="display:inline-block; width:16.66%; font-size:14px;"><a style="white-space:nowrap;" href="#installation">Installation</a></div>
+            </div>
+
+            <!-- Row 2 -->
+            <div style="width:100%; white-space:nowrap; margin-top:8px;">
+                <div style="display:inline-block; width:20%; font-size:14px;"><a style="white-space:nowrap;" href="#dashboard">Dashboard</a></div>
+                <div style="display:inline-block; width:20%; font-size:14px;"><a style="white-space:nowrap;" href="#customer">Customers</a></div>
+                <div style="display:inline-block; width:20%; font-size:14px;"><a style="white-space:nowrap;" href="#product">Products</a></div>
+                <div style="display:inline-block; width:20%; font-size:14px;"><a style="white-space:nowrap;" href="#sales">Sales</a></div>
+                <div style="display:inline-block; width:20%; font-size:14px;"><a style="white-space:nowrap;" href="#system">Settings</a></div>
+            </div>
+
         </nav>
+
+
+
 
         <div class="content">
             <!-- Document Control -->
@@ -934,24 +960,21 @@
                                 <li>Make sure you are in the project root directory (where .env.example file exists)</li>
                                 <li>Open your terminal/command prompt in the project root directory</li>
                                 <li>Run the following command to copy the example environment file:</li>
-                                <li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">cp .env.example .env</code>
+                                <li>
+                                    <pre><code style="color: #ffffff;">
+cp .env.example .env</code></pre>
                                 </li>
                                 <li><strong>For Windows Command Prompt:</strong> Use <code>copy .env.example .env</code></li>
                                 <li><strong>For Windows Git Bash/PowerShell:</strong> Use <code>cp .env.example .env</code></li>
                                 <li><strong>For Linux/Mac:</strong> Use <code>cp .env.example .env</code></li>
                                 <li>This will create a new .env file in your project root directory</li>
-                                <li>Now open the .env file and update the database credentials with the information from Step 2:
-                                    <ul style="margin-top: 10px; background: #f8f9fa; padding: 15px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.9em;">
-                                        <li>DB_CONNECTION=mysql</li>
-                                        <li>DB_HOST=127.0.0.1 (or your database host)</li>
-                                        <li>DB_PORT=3306</li>
-                                        <li>DB_DATABASE=your_database_name (from Step 2)</li>
-                                        <li>DB_USERNAME=your_database_username (from Step 2)</li>
-                                        <li>DB_PASSWORD=your_database_password (from Step 2)</li>
-                                    </ul>
-                                </li>
-                                <li>Save the .env file after updating the database credentials</li>
+                                <li>Now run below command to set app key in your .env file</li>
+                                <pre><code style="color: #ffffff;">
+php artisan key:generate</code></pre>
+                                <li>Now run below command to set jwt secret in your .env file. <strong>Important Note: Please make sure that the Apache server and MySQL are running if you setup for local developement.</strong></li>
+                                <pre><code style="color: #ffffff;">
+php artisan jwt:secret</code></pre>
+                                <li>Now save the .env file after running these commands</li>
                             </ul>
                         </div>
                     </div>
@@ -1210,10 +1233,9 @@ BCRYPT_ROUNDS=12</code></pre>
                         <strong>📌 Important Notes:</strong>
                         <ul style="margin-top: 10px; margin-left: 20px;">
                             <li>Never commit the <code>.env</code> file to version control (Git)</li>
-                            <li>Keep all secret keys (APP_KEY, JWT_SECRET, STRIPE_SECRET) confidential</li>
+                            <li>Set <code>REACT_REDIRECT_URL</code></li>
                             <li>Set <code>APP_DEBUG=false</code> in production</li>
                             <li>Use <code>APP_ENV=production</code> for live server</li>
-                            <li>Update <code>APP_URL</code> to your actual domain in production</li>
                             <li>After changing .env file, clear cache: <code>php artisan config:clear</code></li>
                         </ul>
                     </div>
@@ -1226,8 +1248,8 @@ BCRYPT_ROUNDS=12</code></pre>
                             <ul>
                                 <li>Make sure you are in the project root directory in your terminal</li>
                                 <li>Run the following command to start the Laravel development server:</li>
-                                <li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">php artisan serve</code>
+                                <li>
+                                    <pre><code style="color: #ffffff;">php artisan serve</code></pre>
                                 </li>
                                 <li>You will see a message like: <code>Server started on http://127.0.0.1:8000</code></li>
                                 <li>Open your web browser and navigate to: <code>http://localhost:8000</code> or <code>http://127.0.0.1:8000</code></li>
@@ -1253,47 +1275,47 @@ BCRYPT_ROUNDS=12</code></pre>
 							<p>Run the following commands for installing required things-</p>
                             <ul>
 								<li>Step 1: Update Package Lists</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">sudo apt update</code>
+								<li>
+                                    <pre><code style="color: #ffffff;">sudo apt update</code></pre>
                                 </li>
 								
 								<li>Step 2: Install Apache</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">sudo apt install apache2 -y</code>
+								<li>
+                                    <pre><code style="color: #ffffff;">sudo apt install apache2 -y</code></pre>
                                 </li>
 								
 								<li>Step 3: Install MySQL</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">sudo apt install mysql-server</code>
+								<li>
+                                    <pre><code style="color: #ffffff;">sudo apt install mysql-server</code></pre>
                                 </li>
 								
 								<li>Step 4: Install PHP</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">sudo apt install php libapache2-mod-php php-mysql</code>
+								<li>
+                                    <pre><code style="color: #ffffff;">sudo apt install php libapache2-mod-php php-mysql</code></pre>
                                 </li>
 								
 								<li>Step 5: Test PHP Processing</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-									<code style="color: #ffffff;">echo "&lt;?php phpinfo(); ?&gt;" | sudo tee /var/www/html/info.php</code>
+								<li >
+									<pre><code style="color: #ffffff;">echo "&lt;?php phpinfo(); ?&gt;" | sudo tee /var/www/html/info.php</code></pre>
                                 </li>
 								
 								<li>Step 6: Additional PHP Modules</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-									<code style="color: #ffffff;">
-									sudo apt install php-bcmath -y </br>
-									sudo apt install php-ctype -y </br>
-									sudo apt install php-json -y </br>
-									sudo apt install php-mbstring -y </br>
-									sudo apt install php-openssl -y </br>
-									sudo apt install php-pdo -y </br>
-									sudo apt install php-tokenizer -y </br>
-									sudo apt install php-xml -y </br>
-									sudo apt install php-zip -y </br>
-									sudo apt install php-fileinfo -y </br>
-									sudo apt install php-gd -y </br>
-									sudo apt install php-sodium -y </br>
-									sudo apt install php-mysql -y
-									</code>
+								<li>
+									<pre><code style="color: #ffffff;">
+sudo apt install php-bcmath -y 
+sudo apt install php-ctype -y 
+sudo apt install php-json -y 
+sudo apt install php-mbstring -y 
+sudo apt install php-openssl -y 
+sudo apt install php-pdo -y 
+sudo apt install php-tokenizer -y 
+sudo apt install php-xml -y 
+sudo apt install php-zip -y 
+sudo apt install php-fileinfo -y 
+sudo apt install php-gd -y 
+sudo apt install php-sodium -y 
+sudo apt install php-mysql -y
+									</code></pre>
                                 </li>
 								
                             </ul>
@@ -1302,13 +1324,13 @@ BCRYPT_ROUNDS=12</code></pre>
 							<p>Make sure you have an Apache web server installed. For configuring domain in your VPS server, you must configure a vhost (Virtual Host) configuration file. Follow the steps below to configure vhost config file for both domain.</p>
 							<ul>
 								<li>Step 1: Navigate to Apache Sites Directory</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">cd /etc/apache2/sites-available/</code>
+								<li>
+                                    <pre><code style="color: #ffffff;">cd /etc/apache2/sites-available/</code></pre>
                                 </li>
 								
 								<li>Step 2: Create a Virtual Host Configuration File</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">sudo nano /etc/apache2/sites-available/your_domain.com.conf</code>
+								<li>
+                                    <pre><code style="color: #ffffff;">sudo nano /etc/apache2/sites-available/your_domain.com.conf</code></pre>
                                 </li>
 								
 								<li>Add the following content:</li>
@@ -1386,13 +1408,13 @@ BCRYPT_ROUNDS=12</code></pre>
 								
 								
 								<li>Step 3: Enable the virtual host configuration file</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">sudo a2ensite your_domain.com.conf</code>
+								<li>
+                                    <pre><code style="color: #ffffff;">sudo a2ensite your_domain.com.conf</code></pre>
                                 </li>
 								
 								<li>Step 4: Reload the Apache2 server</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">sudo systemctl reload apache2</code>
+								<li>
+                                    <pre><code style="color: #ffffff;">sudo systemctl reload apache2</code></pre>
                                 </li>
 								
 								<li>Step 5: Test the Virtual Host. Open your web browser and navigate to http://your_domain.com. You should see your website.</li>
@@ -1428,41 +1450,41 @@ BCRYPT_ROUNDS=12</code></pre>
 								<li>Step 1: SSH into the server. Access the server hosting your HTTP website via SSH using a user account with sudo privileges.</li>
 								<li>Step 2: Install snapd. Ensure that you install snapd and carefully follow any provided instructions to activate classic snap support.</li>
 								<li>Refer to the instructions provided on snapcraft’s website for installing snapd.</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">install snapd</code>
+								<li>
+                                   <pre> <code style="color: #ffffff;">install snapd</code></pre>
                                 </li>
 								
 								<li>Step 3: Remove certbot-auto and any Certbot OS packages</li>
 								<li>If you have any Certbot packages installed via an OS package manager such as apt, it’s advisable to uninstall them before installing the Certbot snap. This ensures that when you execute the command “certbot,” the snap version is utilized rather than the one from your OS package manager. For removing the certbot from the system run the following command</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">sudo apt-get remove certbot</code>
+								<li>
+                                    <pre><code style="color: #ffffff;">sudo apt-get remove certbot</code></pre>
                                 </li>
 								
 								<li>Step 4: Install Certbot. Execute this command on the command line of your machine to install Certbot.</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">sudo snap install --classic certbot</code>
+								<li>
+                                    <pre><code style="color: #ffffff;">sudo snap install --classic certbot</code></pre>
                                 </li>
 								
 								<li>Step 5: Prepare the Certbot command. Run the following instruction on the command line of your machine to ensure that the certbot command can be executed.</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">sudo ln -s /snap/bin/certbot /usr/bin/certbot</code>
+								<li>
+                                    <pre><code style="color: #ffffff;">sudo ln -s /snap/bin/certbot /usr/bin/certbot</code></pre>
                                 </li>
 								
 								<li>Step 6: Choose how you’d like to run Certbot. Run this command to get a certificate and have Certbot edit your apache configuration automatically to serve it, turning on HTTPS access in a single step.</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">sudo certbot --apache</code>
+								<li>
+                                    <pre><code style="color: #ffffff;">sudo certbot --apache</code></pre>
 								</li>
 									
 								<li>Or, just get a certificate</li>
 								<li>If you’re feeling more conservative and would like to make the changes to your apache configuration by hand, run this command.</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">sudo certbot certonly --apache</code>
+								<li>
+                                    <pre><code style="color: #ffffff;">sudo certbot certonly --apache</code></pre>
                                 </li>
 								
 								<li>Step 7: Test automatic renewal</li>
 								<li>The Certbot packages on your system come with a cron job or systemd timer that will renew your certificates automatically before they expire. You will not need to run Certbot again, unless you change your configuration. You can test automatic renewal for your certificates by running this command:</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">sudo certbot renew --dry-run</code>
+								<li>
+                                   <pre> <code style="color: #ffffff;">sudo certbot renew --dry-run</code></pre>
                                 </li>
 								
 								<li>Step 8: Confirm that Certbot worked</li>
@@ -1481,46 +1503,46 @@ BCRYPT_ROUNDS=12</code></pre>
 							<p>Follow the below steps:</p>
 							<ul>
 								<li>Step 1: Log in to MySQL</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">sudo mysql</code>
+								<li>
+                                    <pre><code style="color: #ffffff;">sudo mysql</code></pre>
                                 </li>
 								<li>Step 2: Create a Database</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">CREATE DATABASE your_database_name;</code>
+								<li>
+                                   <pre><code style="color: #ffffff;">CREATE DATABASE your_database_name;</code></pre> 
                                 </li>
 								<p>Replace your_database_name with the desired name for your database.</p>
 								
 								<li>Step 3: Create a MySQL User</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';</code>
+								<li>
+                                   <pre> <code style="color: #ffffff;">CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password';</code></pre>
                                 </li>
 								<p>Replace your_username with the desired username and your_password with the desired password for the user.</p>
 								
 								<li>Step 4: Grant All Privileges to the User for the Database</li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">GRANT ALL PRIVILEGES ON your_database_name.* TO 'your_username'@'localhost';</code>
+								<li>
+                                    <pre><code style="color: #ffffff;">GRANT ALL PRIVILEGES ON your_database_name.* TO 'your_username'@'localhost';</code></pre>
                                 </li>
 								
 								<li>Step 4: Flush the privileges </li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">FLUSH PRIVILEGES;</code>
+								<li>
+                                    <pre><code style="color: #ffffff;">FLUSH PRIVILEGES;</code></pre>
                                 </li>
 								<p>Replace your_database_name with the name of the database created in Step 2 and your_username with the username created in Step 3</p>
 								
 								<li>Step 5: Exit MySQL </li>
-								<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-                                    <code style="color: #ffffff;">EXIT;</code>
+								<li>
+                                   <pre> <code style="color: #ffffff;">EXIT;</code></pre>
                                 </li>
 							</ul>
 								
 								
 							<p><strong>phpMyadmin setup (optional):</strong></p>
 							<p>Run the following commands for installing phpmyadmin in your system</p>
-							<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-								<code style="color: #ffffff;">sudo apt update</code>
+							<li>
+								<pre><code style="color: #ffffff;">sudo apt update</code></pre>
 							</li>
-							<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-								<code style="color: #ffffff;">sudo apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl</code>
+							<li>
+								<pre><code style="color: #ffffff;">sudo apt install phpmyadmin php-mbstring php-zip php-gd php-json php-curl</code></pre>
 							</li>
 							<p>Here are the options you should choose when prompted in order to configure your installation correctly:</p>
 							<p>For the server selection, choose apache2.</p>
@@ -1531,29 +1553,39 @@ BCRYPT_ROUNDS=12</code></pre>
 							<p>Select Yes when asked whether to use dbconfig-common to set up the database.</p>
 							<p>You will then be asked to choose and confirm a MySQL application password for phpMyAdmin.</p>
 							<p>Restart the apache2 server-</p>
-							<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-								<code style="color: #ffffff;">sudo systemctl restart apache2</code>
+							<li>
+								<pre><code style="color: #ffffff;">sudo systemctl restart apache2</code></pre>
 							</li>
 							
 							<p><strong>Project Setup</strong></p>
 							<p>Upload your project in /var/www/your_domain.com/public_html and unzip the file</p>
-							<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-								<code style="color: #ffffff;">apt install unzip</code>
+							<li>
+								<pre><code style="color: #ffffff;">apt install unzip</code></pre>
 							</li>
-							<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-								<code style="color: #ffffff;">unzip your_file_name</code>
+							<li>
+								<pre><code style="color: #ffffff;">unzip your_file_name</code></pre>
 							</li>
 							
 							<p>Then give permission to some specific files & folders</p>
-							<li style="background: #283141; color: #ffffff; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 1.1em; text-align: center;">
-								<code style="color: #ffffff;">
-								sudo chmod 755 .env </br>
-								sudo chmod 777 modules_statuses.json </br>
-								sudo chmod 777 Providers/RouteServiceProvider.php </br>
-								sudo chmod -R 777 storage </br>
-								sudo chmod -R 777 bootstrap/cache </br>
-								sudo chmod -R 777 resources/lang </br>
-								</code>
+							<li>
+								<pre><code style="color: #ffffff;">
+sudo chmod 755 .env 
+sudo chmod 777 modules_statuses.json
+sudo chmod 777 Providers/RouteServiceProvider.php
+sudo chmod -R 777 storage
+sudo chmod -R 777 bootstrap/cache 
+sudo chmod -R 777 resources/lang 
+								</code></pre>
+							</li>
+                            <p>Make sure you are in the project root directory (where .env.example file exists) and run the below command</p>
+                            <li>
+								<pre><code style="color: #ffffff;">cp .env.example .env</code></pre>
+							</li>
+                            <p>Now run below command to set app key and jwt secret in your .env file</p>
+                            <li>
+								<pre><code style="color: #ffffff;">php artisan key:generate
+php artisan jwt:secret
+                                </code></pre>
 							</li>
 							<p>Now you are ready to go for the installation.</p>
 							
@@ -2561,7 +2593,7 @@ BCRYPT_ROUNDS=12</code></pre>
 
         <footer>
             <p>© 2026 All Rights Reserved @ DebuggerMind Technologies</p>
-            <p style="margin-top: 10px; font-size: 0.85em; opacity: 0.8;">E-Commerce Management System – Software Documentation | Emind v1.0.0</p>
+            <p style="margin-top: 10px; font-size: 0.85em; opacity: 0.8;">eMind – Software Documentation | Emind v1.0.0</p>
             <p style="margin-top: 5px; font-size: 0.85em; opacity: 0.8;">Written in English. For support, please contact the author through CodeCanyon.</p>
         </footer>
     </div>
