@@ -962,27 +962,29 @@
 
                     <div class="image-item">
                         <div class="image-details">
-                            <h3>Step 4: Create .env File</h3>
-                            <p><strong>Description:</strong> Create the environment configuration file from the example file using terminal command.</p>
+                            <h3>Step 4: Ready Your Files</h3>
+                            <p><strong>Description:</strong> Ready the file by running below commands using terminal command.</p>
                             <p><strong>What to do:</strong></p>
                             <ul>
                                 <li>Make sure you are in the project root directory (where .env.example file exists)</li>
                                 <li>Open your terminal/command prompt in the project root directory</li>
-                                <li>Run the following command to copy the example environment file:</li>
-                                <li>
+                                <li>Run the following command to install necessary packages:</li>
+                                
+                                    <pre><code style="color: #ffffff;">
+composer update</code></pre>
+                                
+                                <li>Now, run the following command to copy the example environment file:</li>
+                                
                                     <pre><code style="color: #ffffff;">
 cp .env.example .env</code></pre>
-                                </li>
+                                
                                 <li><strong>For Windows Command Prompt:</strong> Use <code>copy .env.example .env</code></li>
                                 <li><strong>For Windows Git Bash/PowerShell:</strong> Use <code>cp .env.example .env</code></li>
                                 <li><strong>For Linux/Mac:</strong> Use <code>cp .env.example .env</code></li>
                                 <li>This will create a new .env file in your project root directory</li>
-                                <li>Now run below command to set app key in your .env file</li>
+                                <li>Now run below command to set app key in your .env file <strong>Important Note: Please make sure that the Apache server and MySQL are running if you setup for local developement.</strong></li>
                                 <pre><code style="color: #ffffff;">
 php artisan key:generate</code></pre>
-                                <li>Now run below command to set jwt secret in your .env file. <strong>Important Note: Please make sure that the Apache server and MySQL are running if you setup for local developement.</strong></li>
-                                <pre><code style="color: #ffffff;">
-php artisan jwt:secret</code></pre>
                                 <li>Now save the .env file after running these commands</li>
                             </ul>
                         </div>
@@ -1252,7 +1254,7 @@ BCRYPT_ROUNDS=12</code></pre>
                     <div class="image-item">
                         <div class="image-details">
                             <h3>Step 5: Run the Project</h3>
-                            <p><strong>Description:</strong> Start the development server to run the project and access the installation wizard.</p>
+                            <p><strong>Description:</strong> Start to run the project and access the installation wizard.</p>
                             <p><strong>For Local Development:</strong></p>
                             <ul>
                                 <li>Make sure you are in the project root directory in your terminal</li>
@@ -1586,14 +1588,17 @@ sudo chmod -R 777 bootstrap/cache
 sudo chmod -R 777 resources/lang 
 								</code></pre>
 							</li>
-                            <p>Make sure you are in the project root directory (where .env.example file exists) and run the below command</p>
+                            <p>Make sure you are in the project root directory (where .env.example file exists) and run the below command to install necessary packages</p>
                             <li>
-								<pre><code style="color: #ffffff;">cp .env.example .env</code></pre>
+								<pre><code style="color: #ffffff;">
+composer update</code></pre>
+<p>Now run the below command to to create .env file</p>
+<pre><code style="color: #ffffff;">
+cp .env.example .env</code></pre>
 							</li>
-                            <p>Now run below command to set app key and jwt secret in your .env file</p>
+                            <p>Now run below command to set app key in your .env file</p>
                             <li>
 								<pre><code style="color: #ffffff;">php artisan key:generate
-php artisan jwt:secret
                                 </code></pre>
 							</li>
 							<p>Now you are ready to go for the installation.</p>
